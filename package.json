@@ -2,7 +2,8 @@
     "author": "Christopher John <cojohn@gmail.com>",
 	"contributors": [ 
     	{"name": "Christopher John", "github": "cojohn", "email": "cojohn@gmail.com"},
-		{"name": "Dave Winders", "github": "daithiw44"}
+		{"name": "Dave Winders", "github": "daithiw44"},
+		{"name": "Jesse Fulton", "github": "jessefulton"}
 	],
     "name": "urban-airship",
     "description": "Urban Airship API wrapper.",
@@ -11,6 +12,12 @@
       "type": "git",
       "url": "git://github.com/cojohn/node-urban-airship.git"
     },
+	"dependencies": {
+		"moment": "1.7.x"
+	},
+	"scripts": {
+		"test": "node test/test.js"
+	},
     "keywords": ["Urban Airship", "iPhone", "iOS", "notification", "push", "api"],
     "main": "./index",
     "engines": {
