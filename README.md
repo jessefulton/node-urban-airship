@@ -1,65 +1,13 @@
-#node-urban-airship
+node-urban-airship
+==================
 
-Simple wrapper for the Urban Airship API.
+Fork of [https://github.com/cojohn/node-urban-airship](https://github.com/cojohn/node-urban-airship). See their readme for more details.
 
-How to use:
+This fork adds a [`feedback` API call](https://docs.urbanairship.com/display/DOCS/Server:+iOS+Push+API#ServeriOSPushAPI-FeedbackService) to retrieve a list of inactive devices. This is useful to clear out a local cache of device tokens which are no longer valid.
 
-npm install urban-airship
+To Do:
+-------
 
-Reference the module: require("urban-airship") 
-
-Authenticate with Urban Airship.
-
-	ua = new UA("<api key>", "<api secret key>", "<api master key>");
-
-Use Node-Urban-Airship.
-
-Sample API Calls
-
-1. Register a device
-
-	ua.registerDevice("< token >", function(error) {...});
-
-2. Create payloads for the push notification API needed.
-
-	Information available here.
-	http://urbanairship.com/docs/push.html
-
-	Push Notification Examples: 
-
-		a)	"/api/push/"
-
-		var payload0 = {
-			"device_tokens": [
-			The device or device ids to send the message to
-			],
-			"aps": {
-				"alert": "Calling Urban Airship!",
-				"badge": 2
-			}
-		};
-
-		ua.pushNotification("/api/push", payload0, function(error) {....});
-
-		b) "/api/push/broadcast/"
-
-		var payload1 = {
-			"aps": {
-				 "badge": 15,
-				 "alert": "Calling Urban Airship!",
-				 "sound": "cat.caf"
-			},
-			"exclude_tokens": [
-				"device token you want to skip",
-				"another device token you want to skip"
-			]
-		};
-
-		ua.pushNotification("/api/push/broadcast/", payload1, function(error) {.....});
-
-3. Unregister a device.
-
-	ua.unregisterDevice("< token >", function(error) {....});
-
-
-
+* Clean up unit tests
+    * Implement a more elegant way to inject UA keys
+* Get rid of that nastay try/catch block inside of the `_transport` method
